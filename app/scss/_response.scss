@@ -6,4 +6,11 @@
    .menu__list li:not(:last-child) {
       margin-right: 15px;
    }
+   .menu__link{
+      padding: 0 15px;
+   }
+   // HOME
+   .home__body{
+      padding-right: 0;
+   }
 }

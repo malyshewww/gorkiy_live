@@ -20,6 +20,20 @@ function initSliders() {
             pagination: {
                el: ".slider-programm__pagination",
             },
+            breakpoints: {
+               300: {
+                  slidesPerView: 1,
+               },
+               479.98: {
+                  slidesPerView: 2,
+               },
+               767.98: {
+                  slidesPerView: 3,
+               },
+               991.98: {
+                  slidesPerView: 4,
+               }
+            }
          });
       } else {
          programmSlider.classList.add('disabled');
