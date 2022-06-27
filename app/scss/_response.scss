@@ -1,0 +1,9 @@
+@media screen and (max-width: 991.98px) {
+   // HEADER
+   .header__body{
+      padding: 20px 0 0;
+   }
+   .menu__list li:not(:last-child) {
+      margin-right: 15px;
+   }
+}

@@ -1,0 +1,172 @@
+.programm {
+   padding: 28px 0 28px;
+   font-family: 'TT Norms';
+   &__body {
+      position: relative;
+      background: $color-gray-light;
+      &::before{
+         content: "";
+         position: absolute;
+         z-index: 4;
+         top: 34px;
+         left: 0;
+         width: 100%;
+         height: 98px;
+         background: $color-red-dark;
+      }
+      &::after{
+         content: "";
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 34px;
+         background: $color-white;
+      }
+   }
+   &__wrapper{
+      position: relative;
+      &::before{
+         content: "";
+         position: absolute;
+         z-index: 1;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         height: 80px;
+         background: $color-white;
+      }
+   }
+   &__title {
+      margin-bottom: 14px;
+      padding-top: 12px;
+   }
+   &-slider {
+   }
+}
+.programm-heading {
+   text-align: center;
+   padding-bottom: 7px;
+   &__label {
+      font-weight: 400;
+   }
+   &__name {
+      font-weight: 600;
+   }
+}
+.page-title {
+   border-top: 2px solid $color-red;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   letter-spacing: 2.1px;
+   font-size: 21px;
+   & span {
+      font-weight: 800;
+   }
+}
+.slider-programm {
+   position: relative;
+   z-index: 4;
+   &__wrapper {
+   }
+   &__item {
+   }
+   &__controls {
+      height: 62px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: $color-black;
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      max-width: 490px;
+      margin: 20px auto 0;
+   }
+   &__arrow {
+      height: 100%;
+      width: 63px;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   &__pagination {
+   }
+}
+.programm-item {
+   display: flex;
+   flex-direction: column;
+   &__image {
+      position: relative;
+      padding-bottom: math.div(171, 235) * 100%;
+      & img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+      }
+   }
+   &__body {
+      background: $color-white;
+      padding: 12px 18px 65px 24px;
+      flex: 1 1 auto;
+   }
+   &__title {
+      font-weight: 700;
+      color: $color-red-light;
+      margin-bottom: 10px;
+   }
+   &__text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+   }
+   &__footer {
+      font-family: 'TT Norms';
+      font-weight: 500;
+      padding: 13px 23px 13px 23px;
+      color: $color-white;
+      font-weight: 500;
+      background: $color-gray-light;
+   }
+   &__time {
+      & span {
+         position: relative;
+         display: block;
+         min-height: 20px;
+         padding-left: 50px;
+         background: url('../images/icons/time.png');
+         background-repeat: no-repeat;
+         background-position: 0 50%;
+         
+      }
+   }
+}
+.swiper-pagination-bullets {
+   display: flex;
+   align-items: center;
+   & .swiper-pagination-bullet{
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-white;
+      &:not(:last-child){
+         margin-right: 22px;
+      }
+      &.swiper-pagination-bullet-active{
+         width: 12px;
+         height: 12px;
+      }
+   }
+}
+.arrow-prev {
+   background-image: url('../images/icons/arrow-prev.png');
+}
+.arrow-next {
+   background-image: url('../images/icons/arrow-next.png');
+}

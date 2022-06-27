@@ -1,0 +1,124 @@
+.header {
+   color: $color-black;
+   
+   &__menu {
+   }
+   &__body{
+      padding: 46px 0 0;
+      position: relative;
+      &::before,
+      &::after {
+         background: $color-white;
+         box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
+         border-radius: 50%;
+         z-index: -1;
+      }
+      &::before{
+         content: "";
+         position: absolute;
+         display: block;
+         width: 164px;
+         height: 164px;
+         top: 0;
+         transform: translateY(-62%);
+         right: 123px;
+         
+
+      }
+      &::after{
+         content: "";
+         position: absolute;
+         display: block;
+         width: 37px;
+         height: 37px;
+         top: 40px;
+         left: 272px;
+      }
+   }
+}
+.menu-header {
+   &__body {
+      display: none;
+   }
+   &__icon {
+      display: none;
+   }
+}
+.menu {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   &__list {
+      display: flex;
+      align-items: center;
+      & li.active {
+         border: 2px solid $color-black;
+      }
+      & li:not(:last-child){
+         margin-right: 30px;
+      }
+   }
+   &__link {
+      min-height: 54px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      line-height: 21px;
+      color: $color-black;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 0 24px;
+      height: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+   }
+
+   &__button {
+      @include gradient;
+      width: 299px;
+      margin: 0 15px;
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      padding: 2px;
+      &-icon {
+         width: 52px;
+         height: 52px;
+         flex: 0 0 52px;
+         background: $color-white;
+         position: relative;
+         display: grid;
+         place-items: center;
+         cursor: pointer;
+         &::before{
+            content: "";
+            display: block;
+            background: url('../images/icons/play.png');
+            background-size: 16px 20px;
+            width: 16px;
+            height: 20px;
+         }
+      }
+      &-text {
+         flex: 1 1 auto;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: none;
+         font-size: 16px;
+         line-height: 32px;
+         font-weight: 600;
+         text-transform: uppercase;
+         color: $color-white;
+         letter-spacing: 2.5px;
+         & span:nth-child(2) {
+            display: none;
+         }
+      }
+   }
+   
+
+   
+}

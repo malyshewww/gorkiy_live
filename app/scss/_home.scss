@@ -1,0 +1,47 @@
+// ================ ГЛАВНАЯ СТРАНИЦА ========================
+.home {
+   padding: 54px 0 56px;
+   text-align: center;
+   &__body{
+      position: relative;
+      padding-right: 54px;
+   }
+   &__title {
+      font-weight: 700;
+      font-size: 92px;
+      line-height: 92px;
+      margin-bottom: 6px;
+      & span{
+         position: relative;
+         padding-left: 80px;
+         display: inline-block;
+      }
+      & span::before{
+         content: "";
+         position: absolute;
+         display: block;
+         background: url('../images/icons/voice.png');
+         background-repeat: no-repeat;
+         top: 0;
+         left: 0;
+         width: 49px;
+         height: 81px;
+      }
+      
+   }
+   &__image{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      & img {
+         max-width: 100%;
+      }
+   }
+   &__text {
+      font-weight: 500;
+      font-size: 26px;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
+      padding-left: 52px;
+   }
+}

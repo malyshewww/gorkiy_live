@@ -1,0 +1,21 @@
+header.header#header
+	div.container
+		.header__body
+			div.header__menu.menu-header
+				.menu-header__body 
+				.menu-header__icon 
+					span
+				nav.menu
+					ul.menu__list
+						each item in menuLeft
+							li(class=item.title==pageTitle?"active":"")
+								a.menu__link(href=item.link)= item.title
+					button.menu__button
+						span.menu__button-icon
+						span.menu__button-text
+							span Слушать эфир
+							span Остановить
+					ul.menu__list 
+						each item in menuRight
+							li(class=item.title==pageTitle?"active":"")
+								a.menu__link(href=item.link)= item.title

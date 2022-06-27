@@ -1,0 +1,134 @@
+@use "sass:math";
+
+@import "_variables";
+@import "_mixins";
+@import "_keyframes";
+@import "_fonts";
+@import "_common";
+
+* {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html{
+	--vh: 1vh;
+}
+html, body{
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	text-size-adjust: none;
+	color: $color-black;
+	scroll-behavior: smooth;
+}
+
+img{
+	border: none;
+	max-width: 100%;
+	object-fit: cover;
+}
+button{
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	&:focus,
+	&:active{
+		outline: 0px solid transparent;
+	}
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input.error,
+textarea.error {
+	border-color: red;
+}
+ul li {
+	list-style: none;
+}
+aside,
+nav,
+footer,
+header,
+section,
+main {
+	display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+.workemail{
+  display: none;
+}
+.container{
+	max-width: 1030px;
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: calc(var(--vh) * 100);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+.header{
+	flex-shrink: 0;
+}
+.footer{
+	flex-shrink: 0;
+}
+.content{
+	position: relative;
+	&::before{
+		content: "";
+		position: absolute;
+		z-index: 3;
+		width: 164px;
+		height: 164px;
+		border-radius: 50%;
+		box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
+		right: -36px;
+		top: 25%;
+	}
+}
+
+@import "_header";
+@import "_home";
+@import "_programm";
+@import "_cooperation";
+@import "_footer";
+
+// @import "../../node_modules/swiper/swiper.min.css"; // Slider: npm install swiper, site: https://swiperjs.com/get-started
+// @import "../../node_modules/air-datepicker/air-datepicker.css"; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
+
+/* ПОДКЛЮЧЕНИЕ СТИЛЕЙ АДАПТИВА */
+@import "_response";
+/* НИЖЕ СТЕЛЕЙ НЕ ДОЛЖНО БЫТЬ!!! */

@@ -1,0 +1,124 @@
+.cooperation{
+   &__title {
+   }
+}
+.cooperation {
+   padding: 59px 0 107px;
+   &__title {
+      padding-top: 12px;
+      margin-bottom: 14px;
+   }
+   &__body {
+      background-color: $color-gray-light;
+      padding: 34px 0 0px;
+   }
+   &__items {
+      background: $color-red-dark;
+      padding: 37px 0 30px 0;
+      margin-bottom: 38px;
+      position: relative;
+      z-index: 3;
+      & .container{
+         display: grid;
+         grid-template-columns: repeat(3, 1fr);
+         gap: 20px;
+      }
+   }
+   &__item {
+   }
+   &__form-wrapper {
+      position: relative;
+   }
+}
+.item-cooperation {
+   display: flex;
+   align-items: center;
+   color: $color-white;
+   font-family: "Montserrat", sans-serif;
+   &__icon {
+      flex: 0 0 52px;
+      width: 52px;
+      min-height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-right: 14px;
+      padding-bottom: 11px;
+      border-bottom: 2px solid $color-yellow;
+   }
+   &__text {
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+   }
+}
+.form {
+   font-family: 'TT Norms', sans-serif;
+   max-width: 700px;
+   margin: 0 auto;
+   text-align: center;
+   padding-bottom: 54px;
+   position: relative;
+   
+   &__title {
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $color-white;
+      letter-spacing: 0.5px;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 26px;
+   }
+   &__inner {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+   }
+   &__column {
+      height: 100%;
+   }
+   &__item {
+      width: 100%;
+      &:not(:last-child){
+         margin-bottom: 18px;
+      }
+   }
+   &__input,
+   &__textarea{
+      font-family: 'TT Norms', sans-serif;
+      width: 100%;
+      background: $color-white;
+      min-height: 37px;
+      padding: 9px 20px;
+      color: $color-black;
+      &::placeholder{
+         font-size: 16px;
+         line-height: 24px;
+         color: $color-gray-dark;
+      }
+      &:focus{
+         outline: none;
+      }
+   }
+   &__input {
+   }
+   &__textarea {
+      min-height: 148px;
+   }
+   &__button {
+      width: 234px;
+      margin: 10px auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 56px;
+      color: $color-white;
+      background: $color-red-light;
+      text-transform: uppercase;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+   }
+}

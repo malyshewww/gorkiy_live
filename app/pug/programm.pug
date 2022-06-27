@@ -1,0 +1,31 @@
+extends layout.pug
+
+block variables
+	- var pageTitle = "Программы"
+block content
+	div.programm
+		.programm__container.container
+			.programm-heading
+				span.programm-heading__label сейчас:
+				span.programm-heading__name «Название программы»
+			.programm__title.page-title ПРОГРАММЫ РАДИО <span>ГОРЬКИЙ LIVE</span>
+		.programm__wrapper
+			.programm__body
+				.container
+					.programm__slider.slider-programm._swiper
+						.slider-programm__wrapper._swiper-wrapper
+							each item, index in programms
+								.slider-programm__item.programm-item._swiper-slide
+									.programm-item__image 
+										img(src=`images/programm-${index+1}.jpg`, alt="")
+									.programm-item__body 
+										h2.programm-item__title= item.title
+										.programm-item__text= item.text
+									.programm-item__footer
+										.programm-item__time
+											span= item.time
+						.slider-programm__controls 
+							button.slider-programm__arrow.arrow-prev
+							.slider-programm__pagination 
+							button.slider-programm__arrow.arrow-next
+

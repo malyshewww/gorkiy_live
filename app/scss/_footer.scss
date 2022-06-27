@@ -1,0 +1,122 @@
+.footer {
+   &__body {
+      padding: 15px 0 22px;
+      border-top: 2px solid $color-black;
+      display: flex;
+      align-items: center;
+      position: relative;
+      &::before{
+         content: "";
+         position: absolute;
+         bottom: -75px;
+         left: 120px;
+         width: 164px;
+         height: 164px;
+         border-radius: 50%;
+         box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
+      }
+      &::after{
+         content: "";
+         position: absolute;
+         z-index: 3;
+         top: -138px;
+         transform: translateY(100%);
+         right: 23px;
+         width: 37px;
+         height: 37px;
+         border-radius: 50%;
+         background: $color-white;
+         box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
+      }
+   }
+   &__logo {
+      display: block;
+   }
+   &__actions {
+   }
+}
+.actions-footer {
+   flex: 0 0 math.div(560, 1000) * 100%;
+   margin-left: auto;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   column-gap: 15px;
+   &__app {
+   }
+}
+.social-footer {
+   display: flex;
+   align-items: center;
+   &__link {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border: 2px solid $color-black;
+      &:not(:last-child){
+         margin-right: 6px;
+      }
+      &::before{
+         content: "";
+         width: 24px;
+         height: 24px;
+         background-repeat: no-repeat;
+         background-position: center;
+      }
+   }
+
+   &__link--vk {
+      &::before{
+         background-image: url('../images/icons/vk.png');
+      }
+   }
+
+   &__link--telegram {
+      &::before{
+         background-image: url('../images/icons/telegram.png');
+      }
+   }
+}
+.footer-app {
+   &__button {
+      width: 313px;
+      display: flex;
+      align-items: center;
+      min-height: 56px;
+      padding: 2px;
+      @include gradient;
+   }
+   &__icon {
+      width: 55px;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      &::before{
+         content: "";
+         display: block;
+         background: url('../images/icons/app-icon.png');
+         background-size: 100% 100%;
+         width: 48px;
+         height: 36px;
+         position: relative;
+         left: 5px;
+      }
+   }
+
+   &__text {
+      font-family: 'Montserrat', sans-serif;
+      flex: 1 1 auto;
+      display: grid;
+      place-items: center;
+      background: $color-white;
+      min-height: 52px;
+      height: 100%;
+      font-size: 13px;
+      line-height: 21px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+   }
+}
