@@ -2,15 +2,13 @@ header.header#header
 	div.container
 		.header__body
 			div.header__menu.menu-header
-				.menu-header__body 
-				.menu-header__icon 
-					span
 				nav.menu
-					ul.menu__list
+					ul.menu__list(data)
 						each item in menuLeft
 							li(class=item.title==pageTitle?"active":"")
+								span.hover-border
 								a.menu__link(href=item.link)= item.title
-					button.menu__button
+					button.menu__button(data-da=".menu-header, 840, 0" id="playRadio")
 						span.menu__button-icon
 						span.menu__button-text
 							span Слушать эфир
@@ -18,4 +16,8 @@ header.header#header
 					ul.menu__list 
 						each item in menuRight
 							li(class=item.title==pageTitle?"active":"")
+								span.hover-border
 								a.menu__link(href=item.link)= item.title
+				.menu-header__icon 
+					span
+

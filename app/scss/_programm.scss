@@ -36,12 +36,15 @@
          height: 80px;
          background: $color-white;
       }
+      &.gray-line{
+         &::before{
+            background: $color-gray-light;
+         }
+      }
    }
    &__title {
       margin-bottom: 14px;
       padding-top: 12px;
-   }
-   &-slider {
    }
 }
 .programm-heading {
@@ -49,6 +52,7 @@
    padding-bottom: 7px;
    &__label {
       font-weight: 400;
+      margin-right: 5px;
    }
    &__name {
       font-weight: 600;
@@ -67,12 +71,8 @@
 .slider-programm {
    position: relative;
    z-index: 4;
-   &__wrapper {
-   }
-   &__item {
-   }
    &__controls {
-      height: 62px;
+      min-height: 62px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -84,16 +84,34 @@
       margin: 20px auto 0;
    }
    &__arrow {
-      height: 100%;
+      height: 26px;
       width: 63px;
       background-repeat: no-repeat;
       background-color: transparent;
       background-position: center;
+      background-size: 63px 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
    }
    &__pagination {
+   }
+}
+.slider-programm.disabled {
+   & .slider-programm__wrapper {
+      flex-flow: row wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 20px;
+   }
+   & .programm-item{
+      &:not(:last-child){
+         margin-right: 20px;
+      }
+   }
+   & .slider-programm__controls{
+      display: none;
    }
 }
 .programm-item {
@@ -155,6 +173,7 @@
       height: 6px;
       border-radius: 50%;
       background: $color-white;
+      cursor: pointer;
       &:not(:last-child){
          margin-right: 22px;
       }

@@ -73,7 +73,11 @@ h6 {
 	font-weight: inherit;
 	font-size: inherit;
 }
-
+body{
+	&.lock {
+		overflow: hidden;
+	}
+}
 .workemail{
   display: none;
 }

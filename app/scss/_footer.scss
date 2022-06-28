@@ -3,6 +3,7 @@
       padding: 15px 0 22px;
       border-top: 2px solid $color-black;
       display: flex;
+      gap: 25px;
       align-items: center;
       position: relative;
       &::before{
@@ -32,8 +33,6 @@
    &__logo {
       display: block;
    }
-   &__actions {
-   }
 }
 .actions-footer {
    flex: 0 0 math.div(560, 1000) * 100%;
@@ -41,7 +40,7 @@
    display: flex;
    align-items: center;
    justify-content: space-between;
-   column-gap: 15px;
+   gap: 15px;
    &__app {
    }
 }
@@ -66,13 +65,11 @@
          background-position: center;
       }
    }
-
    &__link--vk {
       &::before{
          background-image: url('../images/icons/vk.png');
       }
    }
-
    &__link--telegram {
       &::before{
          background-image: url('../images/icons/telegram.png');
@@ -80,13 +77,15 @@
    }
 }
 .footer-app {
+   position: relative;
    &__button {
+      @include gradient;
       width: 313px;
       display: flex;
       align-items: center;
       min-height: 56px;
       padding: 2px;
-      @include gradient;
+      cursor: pointer;
    }
    &__icon {
       width: 55px;
@@ -104,7 +103,6 @@
          left: 5px;
       }
    }
-
    &__text {
       font-family: 'Montserrat', sans-serif;
       flex: 1 1 auto;
