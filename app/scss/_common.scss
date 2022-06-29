@@ -1,13 +1,13 @@
 ._swiper{
 	overflow: hidden;
+	width: 100%;
 }
 ._swiper-wrapper{
-	width: 100%;
 	display: flex;
 	flex-flow: row nowrap;
+	width: 100%;
 }
 ._swiper-slide {
 	flex-shrink: 0;
 	position: relative;
-	width: 100%;
 }

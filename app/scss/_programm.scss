@@ -117,6 +117,7 @@
 .programm-item {
    display: flex;
    flex-direction: column;
+   width: 235px;
    &__image {
       position: relative;
       padding-bottom: math.div(171, 235) * 100%;

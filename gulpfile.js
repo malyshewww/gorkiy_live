@@ -39,16 +39,36 @@ import concat from 'gulp-concat'
 import del from 'del'
 
 const pathCurrent = process.cwd();
-const pathModx = `${pathCurrent}.local/`;
+const pathModx = `C:/OpenServer/domains/gorkiy-live.local/`;
 const pathModxTemplate = `${pathModx}assets/template/`;
 
 
+// Для разработки, НЕ связанной с Modx
+// function browsersync() {
+//   browserSync.init({
+//     server: {
+//       baseDir: './dist/',
+//       middleware: bssi({ baseDir: './dist/', ext: '.html' })
+//     },
+//     // ghostMode: { clicks: false },
+//     notify: false,
+//     online: true,
+//     // tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
+//     ghostMode: false,
+//   })
+// }
+// Для разработки, связанной с Modx
 function browsersync() {
   browserSync.init({
-    server: {
-      baseDir: './dist/',
-      middleware: bssi({ baseDir: './dist/', ext: '.html' })
-    },
+    // server: {
+    //   baseDir: './dist/',
+    //   middleware: bssi({
+    //     baseDir: './dist/',
+    //     ext: '.html'
+    //   })
+    // },
+    proxy: "gorkiy-live.local",
+    open: "external",
     // ghostMode: { clicks: false },
     notify: false,
     online: true,

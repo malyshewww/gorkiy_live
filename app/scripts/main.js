@@ -6,6 +6,8 @@ import "./modules/sliders.js";
 
 import "./modules/dynamic_adapt.js";
 
+import "./modules/form.js";
+
 // MENU BURGER
 const iconMenu = document.querySelector('.menu-header__icon');
 const menuBody = document.querySelector('.menu');
