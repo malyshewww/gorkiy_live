@@ -85,6 +85,7 @@ modalForm.forEach(el => {
             const inputName = thisForm.querySelector('input[name="name"]');
             const inputPhone = thisForm.querySelector('input[name="phone"]');
             const inputEmail = thisForm.querySelector('input[name="email"]');
+            const inputAgreement = thisForm.querySelector('input[name="agreement"]');
             const inputMessage = thisForm.querySelector('textarea[name="message"]');
             if (result.status == "success") {
                // Вызывыаем модальку об успехе
@@ -105,6 +106,9 @@ modalForm.forEach(el => {
                if (inputMessage) {
                   inputMessage.value = '';
                }
+               if (inputAgreement) {
+                  inputAgreement.checked = false;
+               }
             } else {
                if (result.name) {
                   inputName.classList.add('error');
@@ -120,6 +124,10 @@ modalForm.forEach(el => {
                }
                if (result.message) {
                   inputMessage.setAttribute('title', result.message.trim());
+               }
+               if (result.agreement) {
+                  inputAgreement.classList.add('error');
+                  inputAgreement.setAttribute('title', result.email.trim());
                }
             }
             buttonSubmit.removeAttribute('disabled');

@@ -103,7 +103,7 @@
       }
       &:focus{
          outline: none;
-         border: 2px solid $color-red-dark;
+         background: #cbcbcb;
          &::placeholder{
             opacity: 0;
          }

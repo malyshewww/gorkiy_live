@@ -2,11 +2,14 @@
 // import Swiper from 'swiper'; // Slider: npm install swiper, site: https://swiperjs.com/get-started
 // import AirDatepicker from 'air-datepicker'; // Datepicker: npm i air-datepicker -S, site: https://air-datepicker.com/ru
 
+// Слайдеры
 import "./modules/sliders.js";
-
+// Динамический адаптив
 import "./modules/dynamic_adapt.js";
-
+// Форма
 import "./modules/form.js";
+// ServiceWorker for ios
+import "./modules/sw-ios.js";
 
 // MENU BURGER
 const iconMenu = document.querySelector('.menu-header__icon');

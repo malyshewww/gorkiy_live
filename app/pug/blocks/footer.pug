@@ -7,7 +7,19 @@ footer.footer
 				.actions-footer__social.social-footer
 					a(href="#" target="_blank").social-footer__link.social-footer__link--vk
 					a(href="#" target="_blank").social-footer__link.social-footer__link--telegram
-				.actions-footer__app.footer-app
-					button.footer-app__button
+				.actions-footer__app.footer-app.install-app#installAppWrap
+					button.footer-app__button#installAppButton
 						span.footer-app__icon
 						span.footer-app__text Установить приложение
+	.app-info.hidden
+		button(class="app-info__close" type="button")
+		img(src="images/icons/ios-app.svg" alt="icon app" class="app-info__image")
+		.app-info__wrap 
+			.app-info__header Хотите установить приложение Горький LIVE?
+			.app-info__text
+				|нажмите&nbsp;
+				img(src="images/icons/icon-ios-main.svg" alt="icon main" class="app-info__icon")
+				| и "На экран «Домой»" 
+				img(src="images/icons/icon-ios-add.svg" alt="icon add" class="app-info__icon")
+				|" затем&nbsp;
+				span Добавить

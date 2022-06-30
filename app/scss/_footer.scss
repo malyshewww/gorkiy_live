@@ -118,3 +118,8 @@
       letter-spacing: 0.5px;
    }
 }
+.install-app{
+   &.hidden{
+      display: none;
+   }
+}
