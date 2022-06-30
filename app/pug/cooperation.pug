@@ -15,17 +15,5 @@ block content
 								img(src=`images/icons/cooperation-${index+1}.png`, alt="")
 							.item-cooperation__text!= item.text
 			.cooperation__form-wrapper.container
-				form(action="#").cooperation__form.form
-					.form__title Напишите нам
-					.form__inner 
-						.form__column
-							.form__item 
-								input(class="form__input" type="text" placeholder="Имя")
-							.form__item 
-								input(class="form__input" type="text" placeholder="Телефон")
-							.form__item 
-								input(class="form__input" type="email" placeholder="E-mail")
-						.form__column
-							.form__item 
-								textarea(class="form__textarea" placeholder="Сообщение")
-					button(type="submit" class="form__button") Отправить
+				include blocks/form
+				button(data-graph-path="first") Кнопка

@@ -5,6 +5,7 @@
 @import "_keyframes";
 @import "_fonts";
 @import "_common";
+@import "_graph-modal";
 
 * {
 	padding: 0px;
@@ -128,6 +129,7 @@ body{
 @import "_home";
 @import "_programm";
 @import "_cooperation";
+@import "_media-school";
 @import "_footer";
 
 // @import "../../node_modules/swiper/swiper.min.css"; // Slider: npm install swiper, site: https://swiperjs.com/get-started

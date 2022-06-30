@@ -1,0 +1,10 @@
+extends layout.pug
+
+block variables
+	- var pageTitle = "Медиа Школа <span>Горький LIVE</span>: Подача заявки"
+block content
+	.media-school
+		.container 
+			.page-title(class="media-school__title")!= pageTitle
+		.media-school__form
+			include blocks/form

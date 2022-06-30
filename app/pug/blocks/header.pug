@@ -8,12 +8,12 @@ header.header#header
 							li(class=item.title==pageTitle?"active":"")
 								span.hover-border
 								a.menu__link(href=item.link)= item.title
-					button.menu__button(data-da=".menu-header, 840, 0" id="playRadio")
+					button.menu__button(data-da=".menu-header, 900, 0" id="playRadio")
 						span.menu__button-icon
 						span.menu__button-text
 							span Слушать эфир
 							span Остановить
-					ul.menu__list 
+					ul.menu__list.menu__list-right
 						each item in menuRight
 							li(class=item.title==pageTitle?"active":"")
 								span.hover-border

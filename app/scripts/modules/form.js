@@ -1,3 +1,5 @@
+
+// скрытый input
 const workemailList = document.querySelectorAll('.workemail');
 workemailList.forEach((item) => {
    item.value = '';
@@ -36,7 +38,7 @@ workemailList.forEach((item) => {
       });
    }
 
-   var phone = document.querySelectorAll('[data-number]');
+   var phone = document.querySelectorAll('input[name="phone"]');
 
    if (phone) {
       var i = phone.length;
@@ -49,9 +51,15 @@ workemailList.forEach((item) => {
    return true;
 })();
 
-const modalForm = document.querySelectorAll('.js-form');
-// const closeModalBtn = document.querySelector('.js-close');
-const formAllInputs = document.querySelectorAll('.form__input, .form__textarea')
+// Подключение библиотеки для модальных окон
+import "./graph-modal.min.js";
+const modals = new GraphModal();
+
+const modalForm = document.querySelectorAll('.form');
+const closeModalBtn = document.querySelector('.js-modal-close');
+const formAllInputs = document.querySelectorAll('.form__input, .form__textarea');
+
+// closeModalBtn.addEventListener('click', modals.close.bind(modals))
 
 // Отправка формы
 modalForm.forEach(el => {
@@ -59,10 +67,10 @@ modalForm.forEach(el => {
       event.preventDefault();
       const thisForm = event.target;
       const formData = new FormData(thisForm);
-      // кнопка отправить
+      // кнопка "Отправить"
       const buttonSubmit = thisForm.querySelector('.form__button');
 
-      const buttonSubmitText = buttonSubmit.textContent
+      const buttonSubmitText = buttonSubmit.textContent;
       buttonSubmit.setAttribute('disabled', 'true');
       buttonSubmit.classList.add('disabled')
       buttonSubmit.textContent = 'идет отправка...';
@@ -71,7 +79,7 @@ modalForm.forEach(el => {
          method: 'POST',
          body: formData,
       })
-         // "status" в modx
+         // "status" в MODX
          .then((response) => response.json())
          .then((result) => {
             const inputName = thisForm.querySelector('input[name="name"]');
@@ -80,12 +88,11 @@ modalForm.forEach(el => {
             const inputMessage = thisForm.querySelector('textarea[name="message"]');
             if (result.status == "success") {
                // Вызывыаем модальку об успехе
-               // modals.close()
-
-               // modals.open('notice');
-               // const modal = document.querySelector([data - graph - target="notice"])
-               // const notice = modal.querySelector('.form__notice')
-               // notice.textContent = 'Сообщение успешно отправлено!'
+               modals.close();
+               modals.open('notice');
+               const modal = document.querySelector('[data-graph-target="notice"]')
+               const notice = modal.querySelector('.graph-modal__content')
+               notice.textContent = 'Сообщение успешно отправлено!'
                if (inputName) {
                   inputName.value = '';
                }
@@ -108,8 +115,8 @@ modalForm.forEach(el => {
                   inputPhone.setAttribute('title', result.phone.trim());
                }
                if (result.email) {
-                  inputPhone.classList.add('error');
-                  inputPhone.setAttribute('title', result.email.trim());
+                  inputEmail.classList.add('error');
+                  inputEmail.setAttribute('title', result.email.trim());
                }
                if (result.message) {
                   inputMessage.setAttribute('title', result.message.trim());
@@ -119,15 +126,25 @@ modalForm.forEach(el => {
             buttonSubmit.classList.remove('disabled');
             buttonSubmit.textContent = buttonSubmitText;
          }).catch((error) => {
-
-            // modals.close()
-            // modals.open('notice');
-            // const modal = document.querySelector([data - graph - target="notice"])
-            // const notice = modal.querySelector('.form__notice')
-            // notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
+            modals.close();
+            modals.open('notice');
+            const modal = document.querySelector('[data-graph-target="notice"]')
+            const notice = modal.querySelector('.graph-modal__content')
+            notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
             buttonSubmit.removeAttribute('disabled');
             buttonSubmit.classList.remove('disabled')
             buttonSubmit.textContent = buttonSubmitText;
          });
    })
 })
+formAllInputs.forEach((item) => {
+   const removeErrorClass = (event) => {
+      if (!event.target.classList.contains('error')) {
+         return false;
+      }
+      event.target.classList.remove('error');
+   };
+   item.addEventListener('input', removeErrorClass);
+   item.addEventListener('change', removeErrorClass);
+});
+

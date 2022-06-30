@@ -15,7 +15,7 @@
    }
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 900px) {
    // HEADER
    .menu-header__icon {
 		display: block;
@@ -131,6 +131,9 @@
    }
    .header__body:after {
       content: none;
+   }
+   .menu__list-right{
+      margin-left: 0;
    }
 }
 @media screen and (max-width: 767.98px) {

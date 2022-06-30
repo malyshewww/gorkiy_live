@@ -63,6 +63,9 @@
          cursor: pointer;
       }
    }
+   &__list-right{
+      margin-left: auto;
+   }
    &__link {
       min-height: 54px;
       display: flex;
@@ -83,7 +86,7 @@
    &__button {
       @include gradient;
       width: 299px;
-      margin: 0 15px;
+      margin: 0 35px;
       min-height: 54px;
       display: flex;
       align-items: center;

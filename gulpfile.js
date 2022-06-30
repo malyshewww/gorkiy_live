@@ -195,6 +195,12 @@ function fonts() {
     .pipe(dest(`${pathModxTemplate}fonts/`))
     .pipe(browserSync.stream())
 }
+function favicon() {
+  return src(['app/favicon/**/*'])
+    .pipe(dest('./dist/favicon/'))
+    .pipe(dest(`${pathModxTemplate}favicon/`))
+    .pipe(browserSync.stream())
+}
 
 async function cleandist() {
   del('./dist/**/*', { force: true })
@@ -206,11 +212,12 @@ function startwatch() {
   gulpWatch(['./app/scripts/**/*.js'], { usePolling: true }, scripts)
   gulpWatch(['./app/images/**/*'], { usePolling: true }, images)
   gulpWatch(['./app/fonts/**/*'], { usePolling: true }, fonts)
+  gulpWatch(['./app/favicon/**/*'], { usePolling: true }, favicon)
   gulpWatch(['./dist/**/*.*'], { usePolling: true }).on('change', browserSync.reload)
 }
 
-const build = series(cleandist, parallel(images, scripts, buildPug, styles, fonts))
-const watch = series(parallel(images, scripts, buildPug, styles, fonts), parallel(browsersync, startwatch))
+const build = series(cleandist, parallel(images, scripts, buildPug, styles, fonts, favicon))
+const watch = series(parallel(images, scripts, buildPug, styles, fonts, favicon), parallel(browsersync, startwatch))
 
 
 export { build, watch }

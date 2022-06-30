@@ -10,7 +10,7 @@ html(lang="ru")
 			meta(name='viewport', content='width=device-width, initial-scale=1')
 			//- meta(name='viewport', content='width=1320px, initial-scale=1')
 			link(href="styles/main.min.css?v="+ versionFiles, rel="stylesheet")
-			//- include blocks/favicons
+			include blocks/favicons
 	body
 		div.wrapper#wrapper
 			include blocks/header
@@ -18,5 +18,6 @@ html(lang="ru")
 				block content
 			include blocks/footer
 		include blocks/radio
+		include blocks/modals
 		block scripts
 			script(src="scripts/main.min.js?v=" + versionFiles defer)
