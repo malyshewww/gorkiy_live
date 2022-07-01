@@ -75,6 +75,7 @@ h6 {
 	font-size: inherit;
 }
 body{
+	background: $color-white-light;
 	&.lock {
 		overflow: hidden;
 	}
@@ -121,15 +122,16 @@ body{
 		border-radius: 50%;
 		box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
 		right: -36px;
-		top: 25%;
+		top: 200px;
 	}
 }
 
 @import "_header";
-@import "_home";
-@import "_programm";
-@import "_cooperation";
-@import "_media-school";
+@import "pages/_home";
+@import "pages/_programm";
+@import "pages/_cooperation";
+@import "pages/_media-school";
+@import "pages/_politic";
 @import "_footer";
 
 // @import "../../node_modules/swiper/swiper.min.css"; // Slider: npm install swiper, site: https://swiperjs.com/get-started

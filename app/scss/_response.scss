@@ -198,6 +198,21 @@
    .footer-app__button {
       width: 280px;
    }
+   // CONTENT
+   .content::before{
+      content: none;
+   }
+   // POLITIC
+   .politic{
+      padding: 50px 0 40px;
+      &__title{
+         margin-bottom: 30px;
+      }
+      &__body{
+         padding: 0 20px 20px;
+         margin: 0 -20px;
+      }
+   }
 }
 @media screen and (max-width: 479.98px) {
    .player-container {

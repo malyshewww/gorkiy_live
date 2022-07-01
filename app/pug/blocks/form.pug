@@ -11,7 +11,8 @@ form.form
 		.form__column
 			.form__item 
 				textarea(class="form__textarea" placeholder="Сообщение" name="message")
-	label
-		input(type="checkbox" name="agreement" checked)
-		|Я согласен на обработку <a href="#" target="_blank">персональных данных</a> и с <a href="#" target="_blank">политикой конфиденциальности</a>
+	.form__text Отправляя форму, вы соглашаетесь с 
+					a(href="#" target="_blank") политикой конфиденциальности
+					|&nbsp;и&nbsp;
+					a(href="#" target="_blank") обработкой персональных данных
 	button(type="submit" class="form__button") Отправить

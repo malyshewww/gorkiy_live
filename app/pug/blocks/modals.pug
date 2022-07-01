@@ -1,5 +1,7 @@
 div.graph-modal
-	.graph-modal__container(role="dialog" aria-modal="true" data-graph-target="notice")
-		button(class="btn-reset graph-modal__close js-modal-close" aria-label="Закрыть модальное окно")
-		div(class="graph-modal__content")
-			
+	.graph-modal__container.modal(role="dialog" aria-modal="true" data-graph-target="notice")
+		div(class="graph-modal__content modal__content")
+			.modal__body 
+				.modal__title Форма успешно отправлена
+				.modal__subtitle Скоро мы свяжемся с Вами
+			button.modal__button(type="button" class="btn-reset js-modal-close graph-modal__close") ок

@@ -87,7 +87,7 @@
    }
    &__input,
    &__textarea{
-      font-family: 'TT Norms', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       width: 100%;
       background: $color-white;
       min-height: 37px;
@@ -136,6 +136,14 @@
       &.disabled{
          opacity: 0.5;
          pointer-events: none;
+      }
+   }
+   &__text{
+      color: $color-white;
+      font-weight: 400;
+      padding: 25px 0 15px;
+      & a {
+         color: inherit;
       }
    }
 }

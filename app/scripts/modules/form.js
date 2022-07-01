@@ -55,96 +55,168 @@ workemailList.forEach((item) => {
 import "./graph-modal.min.js";
 const modals = new GraphModal();
 
+// Отправка формы
 const modalForm = document.querySelectorAll('.form');
 const closeModalBtn = document.querySelector('.js-modal-close');
 const formAllInputs = document.querySelectorAll('.form__input, .form__textarea');
 
 // closeModalBtn.addEventListener('click', modals.close.bind(modals))
 
-// Отправка формы
-modalForm.forEach(el => {
-   el.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const thisForm = event.target;
-      const formData = new FormData(thisForm);
-      // кнопка "Отправить"
-      const buttonSubmit = thisForm.querySelector('.form__button');
+function formHandler(formId, path) {
+   const formElement = document.getElementById(formId);
+   if (formElement) {
+      formElement.addEventListener('submit', (event) => {
+         event.preventDefault();
+         const thisForm = event.target;
+         const formData = new FormData(thisForm);
+         // кнопка "Отправить"
+         const buttonSubmit = thisForm.querySelector('.form__button');
 
-      const buttonSubmitText = buttonSubmit.textContent;
-      buttonSubmit.setAttribute('disabled', 'true');
-      buttonSubmit.classList.add('disabled')
-      buttonSubmit.textContent = 'идет отправка...';
-
-      fetch('/formhandler', {
-         method: 'POST',
-         body: formData,
-      })
-         // "status" в MODX
-         .then((response) => response.json())
-         .then((result) => {
-            const inputName = thisForm.querySelector('input[name="name"]');
-            const inputPhone = thisForm.querySelector('input[name="phone"]');
-            const inputEmail = thisForm.querySelector('input[name="email"]');
-            const inputAgreement = thisForm.querySelector('input[name="agreement"]');
-            const inputMessage = thisForm.querySelector('textarea[name="message"]');
-            if (result.status == "success") {
-               // Вызывыаем модальку об успехе
+         const buttonSubmitText = buttonSubmit.textContent;
+         buttonSubmit.setAttribute('disabled', 'true');
+         buttonSubmit.classList.add('disabled')
+         buttonSubmit.textContent = 'идет отправка...';
+         fetch(path, {
+            method: 'POST',
+            body: formData,
+         })
+            // "status" в MODX
+            .then((response) => response.json())
+            .then((result) => {
+               const inputName = thisForm.querySelector('input[name="name"]');
+               const inputPhone = thisForm.querySelector('input[name="phone"]');
+               const inputEmail = thisForm.querySelector('input[name="email"]');
+               const inputMessage = thisForm.querySelector('textarea[name="message"]');
+               if (result.status == "success") {
+                  // Вызывыаем модальку об успехе
+                  modals.close();
+                  modals.open('notice');
+                  setTimeout(() => {
+                     modals.close("notice");
+                  }, 4000)
+                  if (inputName) {
+                     inputName.value = '';
+                  }
+                  if (inputPhone) {
+                     inputPhone.value = '';
+                  }
+                  if (inputEmail) {
+                     inputEmail.value = '';
+                  }
+                  if (inputMessage) {
+                     inputMessage.value = '';
+                  }
+               } else {
+                  if (result.name) {
+                     inputName.classList.add('error');
+                     inputName.setAttribute('title', result.name.trim());
+                  }
+                  if (result.phone) {
+                     inputPhone.classList.add('error');
+                     inputPhone.setAttribute('title', result.phone.trim());
+                  }
+                  if (result.email) {
+                     inputEmail.classList.add('error');
+                     inputEmail.setAttribute('title', result.email.trim());
+                  }
+                  if (result.message) {
+                     inputMessage.setAttribute('title', result.message.trim());
+                  }
+               }
+               buttonSubmit.removeAttribute('disabled');
+               buttonSubmit.classList.remove('disabled');
+               buttonSubmit.textContent = buttonSubmitText;
+            }).catch((error) => {
                modals.close();
                modals.open('notice');
                const modal = document.querySelector('[data-graph-target="notice"]')
                const notice = modal.querySelector('.graph-modal__content')
-               notice.textContent = 'Сообщение успешно отправлено!'
-               if (inputName) {
-                  inputName.value = '';
-               }
-               if (inputPhone) {
-                  inputPhone.value = '';
-               }
-               if (inputEmail) {
-                  inputEmail.value = '';
-               }
-               if (inputMessage) {
-                  inputMessage.value = '';
-               }
-               if (inputAgreement) {
-                  inputAgreement.checked = false;
-               }
-            } else {
-               if (result.name) {
-                  inputName.classList.add('error');
-                  inputName.setAttribute('title', result.name.trim());
-               }
-               if (result.phone) {
-                  inputPhone.classList.add('error');
-                  inputPhone.setAttribute('title', result.phone.trim());
-               }
-               if (result.email) {
-                  inputEmail.classList.add('error');
-                  inputEmail.setAttribute('title', result.email.trim());
-               }
-               if (result.message) {
-                  inputMessage.setAttribute('title', result.message.trim());
-               }
-               if (result.agreement) {
-                  inputAgreement.classList.add('error');
-                  inputAgreement.setAttribute('title', result.email.trim());
-               }
-            }
-            buttonSubmit.removeAttribute('disabled');
-            buttonSubmit.classList.remove('disabled');
-            buttonSubmit.textContent = buttonSubmitText;
-         }).catch((error) => {
-            modals.close();
-            modals.open('notice');
-            const modal = document.querySelector('[data-graph-target="notice"]')
-            const notice = modal.querySelector('.graph-modal__content')
-            notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
-            buttonSubmit.removeAttribute('disabled');
-            buttonSubmit.classList.remove('disabled')
-            buttonSubmit.textContent = buttonSubmitText;
-         });
-   })
-})
+               notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
+               buttonSubmit.removeAttribute('disabled');
+               buttonSubmit.classList.remove('disabled')
+               buttonSubmit.textContent = buttonSubmitText;
+            });
+      })
+   }
+}
+
+formHandler("form", "/formhandler");
+formHandler("formMedia", "/formhandlerMedia");
+
+// modalForm.forEach(el => {
+//    el.addEventListener('submit', (event) => {
+//       event.preventDefault();
+//       const thisForm = event.target;
+//       const formData = new FormData(thisForm);
+//       // кнопка "Отправить"
+//       const buttonSubmit = thisForm.querySelector('.form__button');
+
+//       const buttonSubmitText = buttonSubmit.textContent;
+//       buttonSubmit.setAttribute('disabled', 'true');
+//       buttonSubmit.classList.add('disabled')
+//       buttonSubmit.textContent = 'идет отправка...';
+//       fetch('/formhandler', {
+//          method: 'POST',
+//          body: formData,
+//       })
+//          // "status" в MODX
+//          .then((response) => response.json())
+//          .then((result) => {
+//             const inputName = thisForm.querySelector('input[name="name"]');
+//             const inputPhone = thisForm.querySelector('input[name="phone"]');
+//             const inputEmail = thisForm.querySelector('input[name="email"]');
+//             const inputMessage = thisForm.querySelector('textarea[name="message"]');
+//             if (result.status == "success") {
+//                // Вызывыаем модальку об успехе
+//                modals.close();
+//                modals.open('notice');
+//                setTimeout(() => {
+//                   modals.close("notice");
+//                }, 4000)
+//                if (inputName) {
+//                   inputName.value = '';
+//                }
+//                if (inputPhone) {
+//                   inputPhone.value = '';
+//                }
+//                if (inputEmail) {
+//                   inputEmail.value = '';
+//                }
+//                if (inputMessage) {
+//                   inputMessage.value = '';
+//                }
+//             } else {
+//                if (result.name) {
+//                   inputName.classList.add('error');
+//                   inputName.setAttribute('title', result.name.trim());
+//                }
+//                if (result.phone) {
+//                   inputPhone.classList.add('error');
+//                   inputPhone.setAttribute('title', result.phone.trim());
+//                }
+//                if (result.email) {
+//                   inputEmail.classList.add('error');
+//                   inputEmail.setAttribute('title', result.email.trim());
+//                }
+//                if (result.message) {
+//                   inputMessage.setAttribute('title', result.message.trim());
+//                }
+//             }
+//             buttonSubmit.removeAttribute('disabled');
+//             buttonSubmit.classList.remove('disabled');
+//             buttonSubmit.textContent = buttonSubmitText;
+//          }).catch((error) => {
+//             modals.close();
+//             modals.open('notice');
+//             const modal = document.querySelector('[data-graph-target="notice"]')
+//             const notice = modal.querySelector('.graph-modal__content')
+//             notice.textContent = 'При отправке произошла ошибка, попробуйте еще раз'
+//             buttonSubmit.removeAttribute('disabled');
+//             buttonSubmit.classList.remove('disabled')
+//             buttonSubmit.textContent = buttonSubmitText;
+//          });
+//    })
+// })
 formAllInputs.forEach((item) => {
    const removeErrorClass = (event) => {
       if (!event.target.classList.contains('error')) {
@@ -155,4 +227,5 @@ formAllInputs.forEach((item) => {
    item.addEventListener('input', removeErrorClass);
    item.addEventListener('change', removeErrorClass);
 });
+
 

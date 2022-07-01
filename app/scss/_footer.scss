@@ -26,7 +26,6 @@
          width: 37px;
          height: 37px;
          border-radius: 50%;
-         background: $color-white;
          box-shadow: 0px 0px 22.08px 0.92px rgba(0, 0, 0, 0.13);
       }
    }
@@ -108,7 +107,7 @@
       flex: 1 1 auto;
       display: grid;
       place-items: center;
-      background: $color-white;
+      background: $color-white-light;
       min-height: 52px;
       height: 100%;
       font-size: 13px;
