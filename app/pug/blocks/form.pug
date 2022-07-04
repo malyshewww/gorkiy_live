@@ -3,16 +3,16 @@ form.form
 	.form__inner 
 		.form__column
 			.form__item 
-				input(class="form__input" type="text" placeholder="Имя" name="name")
+				input(class="form__input" type="text" placeholder="Имя" name="name" required)
 			.form__item 
-				input(class="form__input" type="text" placeholder="Телефон" name="phone")
+				input(class="form__input" type="text" placeholder="Телефон" name="phone" required)
 			.form__item 
-				input(class="form__input" type="email" placeholder="E-mail" name="email")
+				input(class="form__input" type="email" placeholder="E-mail" name="email" required)
 		.form__column
 			.form__item 
 				textarea(class="form__textarea" placeholder="Сообщение" name="message")
 	.form__text Отправляя форму, вы соглашаетесь с 
-					a(href="#" target="_blank") политикой конфиденциальности
+					a(href="politic.html" target="_blank") политикой конфиденциальности
 					|&nbsp;и&nbsp;
-					a(href="#" target="_blank") обработкой персональных данных
+					a(href="politic.html" target="_blank") обработкой персональных данных
 	button(type="submit" class="form__button") Отправить

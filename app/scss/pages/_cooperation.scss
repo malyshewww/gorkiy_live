@@ -95,6 +95,8 @@
       color: $color-black;
       border: 2px solid transparent;
       transition: all .2s ease 0s;
+      position: relative;
+      z-index: 5;
       &::placeholder{
          font-size: 16px;
          line-height: 24px;

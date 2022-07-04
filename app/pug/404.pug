@@ -1,0 +1,9 @@
+extends layout.pug
+
+block variables
+	- var pageTitle = "Страница не найдена"
+block content
+	.empty-page
+		.container
+			.page-title!= pageTitle
+			a(href="/").empty-page__button Вернуться на главную

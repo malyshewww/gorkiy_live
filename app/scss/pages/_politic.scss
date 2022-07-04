@@ -42,7 +42,7 @@
       & > li {
          counter-increment: item;
          position: relative;
-         &:first-letter{
+         &::first-letter{
             padding-left: 30px;
          }
          &::before{
@@ -51,8 +51,7 @@
             font-size: 15px;
             line-height: 18px;
             width: 30px;
-            position: absolute;
-            display: block;
+            display: inline-block;
             top: 0;
             left: 0;
          }
@@ -68,8 +67,7 @@
             &::before{
                content: counter(item) ".";
                width: 30px;
-               position: absolute;
-               display: block;
+               display: inline-block;
                top: 0;
                left: 0;
             }

@@ -139,9 +139,8 @@ function formHandler(formId, path) {
       })
    }
 }
-
 formHandler("form", "/formhandler");
-formHandler("formMedia", "/formhandlerMedia");
+formHandler("formMedia", "/formhandlermedia");
 
 // modalForm.forEach(el => {
 //    el.addEventListener('submit', (event) => {

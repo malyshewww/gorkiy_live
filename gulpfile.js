@@ -44,31 +44,12 @@ const pathModxTemplate = `${pathModx}assets/template/`;
 
 
 // Для разработки, НЕ связанной с Modx
-// function browsersync() {
-//   browserSync.init({
-//     server: {
-//       baseDir: './dist/',
-//       middleware: bssi({ baseDir: './dist/', ext: '.html' })
-//     },
-//     // ghostMode: { clicks: false },
-//     notify: false,
-//     online: true,
-//     // tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
-//     ghostMode: false,
-//   })
-// }
-// Для разработки, связанной с Modx
 function browsersync() {
   browserSync.init({
-    // server: {
-    //   baseDir: './dist/',
-    //   middleware: bssi({
-    //     baseDir: './dist/',
-    //     ext: '.html'
-    //   })
-    // },
-    proxy: "gorkiy-live.local",
-    open: "external",
+    server: {
+      baseDir: './dist/',
+      middleware: bssi({ baseDir: './dist/', ext: '.html' })
+    },
     // ghostMode: { clicks: false },
     notify: false,
     online: true,
@@ -76,6 +57,25 @@ function browsersync() {
     ghostMode: false,
   })
 }
+// Для разработки, связанной с Modx
+// function browsersync() {
+//   browserSync.init({
+//     // server: {
+//     //   baseDir: './dist/',
+//     //   middleware: bssi({
+//     //     baseDir: './dist/',
+//     //     ext: '.html'
+//     //   })
+//     // },
+//     proxy: "gorkiy-live.local",
+//     open: "external",
+//     // ghostMode: { clicks: false },
+//     notify: false,
+//     online: true,
+//     // tunnel: 'yousutename', // Attempt to use the URL https://yousutename.loca.lt
+//     ghostMode: false,
+//   })
+// }
 
 function buildPug() {
   return src(['app/pug/*.pug', "!app/pug/layout.pug", "!app/pug/variables.pug"])

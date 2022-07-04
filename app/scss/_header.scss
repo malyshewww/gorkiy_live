@@ -177,14 +177,16 @@
       right: 0;
       background-color: $color-black;
    }
-   &:not(.active):hover {
-      &::before,
-      &::after {
-         width: 100%;
-      }
-      .hover-border::before,
-      .hover-border::after {
-         height: 100%;
+   @media (any-hover: hover) {
+      &:not(.active):hover {
+         &::before,
+         &::after {
+            width: 100%;
+         }
+         .hover-border::before,
+         .hover-border::after {
+            height: 100%;
+         }
       }
    }
 }
