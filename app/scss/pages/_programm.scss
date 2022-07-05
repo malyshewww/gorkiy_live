@@ -76,12 +76,12 @@
       margin: 20px auto 0;
    }
    &__arrow {
-      height: 26px;
-      width: 63px;
+      height: 25px;
+      width: 61px;
       background-repeat: no-repeat;
       background-color: transparent;
       background-position: center;
-      background-size: 63px 100%;
+      background-size: 61px auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -150,10 +150,10 @@
          display: block;
          min-height: 20px;
          padding-left: 50px;
-         background: url('../images/icons/time.png');
+         background: url('../images/icons/clock.svg');
+         background-size: 20px 20px;
          background-repeat: no-repeat;
          background-position: 0 50%;
-         
       }
    }
 }
@@ -177,8 +177,9 @@
    }
 }
 .arrow-prev {
-   background-image: url('../images/icons/arrow-prev.png');
+   background-image: url('../images/icons/arrow.svg');
 }
 .arrow-next {
-   background-image: url('../images/icons/arrow-next.png');
+   background-image: url('../images/icons/arrow.svg');
+   transform: rotate(180deg);
 }
