@@ -31,6 +31,8 @@
    }
    &__logo {
       display: block;
+      max-width: 103px;
+      max-height: 138px;
    }
 }
 .actions-footer {
@@ -66,12 +68,12 @@
    }
    &__link--vk {
       &::before{
-         background-image: url('../images/icons/vk.png');
+         background-image: url('../images/icons/vk.svg');
       }
    }
    &__link--telegram {
       &::before{
-         background-image: url('../images/icons/telegram.png');
+         background-image: url('../images/icons/tg.svg');
       }
    }
 }

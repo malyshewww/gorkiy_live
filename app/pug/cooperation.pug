@@ -2,6 +2,7 @@ extends layout.pug
 
 block variables
 	- var pageTitle = "Сотрудничество"
+	- var formTitle = "Напишите нам" 
 block content
 	section.cooperation
 		.container 
@@ -12,7 +13,7 @@ block content
 					each item, index in cooperation
 						.cooperation__item.item-cooperation
 							.item-cooperation__icon 
-								img(src=`images/icons/cooperation-${index+1}.png`, alt="")
+								img(src=`images/icons/cooperation-${index+1}.svg`, alt="")
 							.item-cooperation__text!= item.text
 			.cooperation__form-wrapper.container
 				include blocks/form

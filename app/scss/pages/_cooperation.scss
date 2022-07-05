@@ -36,15 +36,19 @@
    color: $color-white;
    font-family: "Montserrat", sans-serif;
    &__icon {
-      flex: 0 0 52px;
+      flex: 0 0 auto;
       width: 52px;
-      min-height: 55px;
+      max-height: 67px;
       display: flex;
       justify-content: center;
       align-items: flex-end;
       margin-right: 14px;
       padding-bottom: 11px;
       border-bottom: 2px solid $color-yellow;
+      & img{
+         max-height: 55px;
+         max-width: 100%;
+      }
    }
    &__text {
       text-transform: uppercase;

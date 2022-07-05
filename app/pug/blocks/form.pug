@@ -1,5 +1,6 @@
 form.form
-	.form__title Напишите нам
+	if formTitle
+		.form__title!= formTitle
 	.form__inner 
 		.form__column
 			.form__item 

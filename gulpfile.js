@@ -217,7 +217,7 @@ function startwatch() {
 }
 
 const build = series(cleandist, parallel(images, scripts, buildPug, styles, fonts, favicon))
-const watch = series(parallel(images, scripts, buildPug, styles, fonts, favicon), parallel(browsersync, startwatch))
+const watch = series(cleandist, parallel(images, scripts, buildPug, styles, fonts, favicon), parallel(browsersync, startwatch))
 
 
 export { build, watch }
