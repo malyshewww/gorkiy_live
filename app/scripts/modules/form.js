@@ -109,18 +109,18 @@ function formHandler(formId, path) {
                } else {
                   if (result.name) {
                      inputName.classList.add('error');
-                     inputName.setAttribute('title', result.name.trim());
+                     // inputName.setAttribute('title', result.name.trim());
                   }
                   if (result.phone) {
                      inputPhone.classList.add('error');
-                     inputPhone.setAttribute('title', result.phone.trim());
+                     // inputPhone.setAttribute('title', result.phone.trim());
                   }
                   if (result.email) {
                      inputEmail.classList.add('error');
-                     inputEmail.setAttribute('title', result.email.trim());
+                     // inputEmail.setAttribute('title', result.email.trim());
                   }
                   if (result.message) {
-                     inputMessage.setAttribute('title', result.message.trim());
+                     // inputMessage.setAttribute('title', result.message.trim());
                   }
                }
                buttonSubmit.removeAttribute('disabled');
