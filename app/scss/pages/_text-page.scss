@@ -1,14 +1,10 @@
-.politic {
+.text-page {
    padding: 60px 0 60px;
-   &__title {
-      padding-top: 20px;
-      margin-bottom: 54px;
-      word-break: break-all;
-   }
    &__wrapper {
       background: $color-gray-light;
       position: relative;
       padding-bottom: 50px;
+      margin-top: 40px;
       &::before{
          content: "";
          position: absolute;
@@ -31,64 +27,63 @@
       font-size: 15px;
       line-height: 18px;
       color: #111111;
-   }
-   &__text {
-      margin-bottom: 14px;
-   }
-   &__list {
-      counter-reset: item;
-      padding-left: 15px;
-      @include reset-list;
-      & > li {
-         counter-increment: item;
-         position: relative;
-         &::first-letter{
-            padding-left: 30px;
-         }
-         &::before{
-            content: counter(item) ".";
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 18px;
-            width: 30px;
-            display: inline-block;
-            top: 0;
-            left: 0;
-         }
+      & p {
+         margin-bottom: 14px;
       }
-      & > li ol {
+      & > ol {
          counter-reset: item;
+         padding-left: 15px;
+         @include reset-list;
          & > li {
             counter-increment: item;
             position: relative;
-            &:first-letter{
+            margin-bottom: 18px;
+            &::first-letter{
                padding-left: 30px;
             }
             &::before{
                content: counter(item) ".";
+               font-weight: 700;
+               font-size: 15px;
+               line-height: 18px;
                width: 30px;
                display: inline-block;
                top: 0;
                left: 0;
             }
          }
-      }
-      & ol, ul {
-         @include reset-list;
-      }
-      & ul {
-         padding-left: 30px;
-      }
-      & > li {
-         margin-bottom: 18px;
-      }
-      & > li strong{
-         font-size: 17px;
-      }
-      & a{
-         color: $color-red;
+         & > li ol {
+            counter-reset: item;
+            & > li {
+               counter-increment: item;
+               position: relative;
+               &:first-letter{
+                  padding-left: 30px;
+               }
+               &::before{
+                  content: counter(item) ".";
+                  width: 30px;
+                  display: inline-block;
+                  top: 0;
+                  left: 0;
+               }
+            }
+         }
+         & ol, ul {
+            @include reset-list;
+         }
+         & ul {
+            padding-left: 30px;
+         }
+         & > li strong{
+            font-size: 17px;
+         }
+         & a{
+            color: $color-red;
+         }
       }
    }
+   
    &__button {
       @include gradient;
       background-color: transparent;
@@ -107,6 +102,6 @@
       text-transform: uppercase;
       text-decoration: none;
       max-width: 300px;
-      margin: 0 auto;
+      margin: 30px auto 0;
    }
 }

@@ -1,11 +1,12 @@
 extends layout.pug
 
 block variables
-	- var pageTitle = "Медиа Школа <span>Горький LIVE</span>: Подача заявки"
+	- var pageTitle = "Медиа Школа Горький LIVE: Подача заявки"
+	- var title = "Медиа Школа <span>Горький LIVE</span>: Подача заявки"
 block content
 	.media-school
 		.container 
-			.page-title(class="media-school__title")!= pageTitle
+			.page-title(class="media-school__title")!= title
 		.media-school__form
 			.container
 				include blocks/form

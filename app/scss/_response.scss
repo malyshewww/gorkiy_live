@@ -54,6 +54,7 @@
 	}
 	.menu-header__icon.active span {
 		transform: scale(0) translate(-50%, -50%);
+      opacity: 0;
       background: $color-red;
 	}
 	.menu-header__icon.active::before {
@@ -210,18 +211,17 @@
    .content::before{
       content: none;
    }
-   // POLITIC
-   .politic{
+   // text-page
+   .text-page{
       padding: 50px 0 70px;
-      &__title{
-         margin-bottom: 30px;
-      }
       &__body{
          padding: 0 20px 20px;
          margin: 0 -20px;
       }
       &__wrapper{
          padding-bottom: 0;
+         background: none;
+         margin-top: 30px;
       }
    }
    // MEDIA-SCHOOL

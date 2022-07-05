@@ -1,13 +1,5 @@
-.cooperation{
-   &__title {
-   }
-}
 .cooperation {
    padding: 59px 0 107px;
-   &__title {
-      padding-top: 12px;
-      margin-bottom: 14px;
-   }
    &__body {
       background-color: $color-gray-light;
       padding: 34px 0 0px;
@@ -98,7 +90,7 @@
       padding: 9px 20px;
       color: $color-black;
       border: 2px solid transparent;
-      transition: all .2s ease 0s;
+      transition: background .2s ease 0s, border .2s ease 0s;
       position: relative;
       z-index: 5;
       &::placeholder{
@@ -118,7 +110,8 @@
    &__input {
    }
    &__textarea {
-      min-height: 148px;
+      min-height: 150px;
+      max-height: 300px;
       resize: vertical;
    }
    &__button {
