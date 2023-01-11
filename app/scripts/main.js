@@ -22,26 +22,55 @@ if (iconMenu) {
    });
 }
 // AUDIO PLAYER
-const playRadio = document.getElementById("playRadio");
-const audioPlayerWrapper = document.querySelector(".player");
-const closeRadio = document.getElementById("closeRadio");
-const audioPlayer = audioPlayerWrapper.querySelector(".player-audio");
+let radiolink;
+if (!radiolink) radiolink = 'https://stream.live-fm.ru:8443/gorkylive/';
 
-playRadio.addEventListener("click", togglePlay);
-function togglePlay() {
-   playRadio.classList.toggle('active');
-   audioPlayerWrapper.classList.add("show-player");
-   if (audioPlayer.paused && playRadio.classList.contains('active')) {
-      audioPlayer.play();
+var radio = (() => {
+   var btn = document.getElementById('playRadio');
+   var closeBtn = document.getElementById('closeRadio')
+   var player = document.querySelector('.player-audio')
+   var sourceAudio = player.querySelector('source')
+   var playerWrap = document.querySelector('.player')
+   if (!btn) return;
+   if (!player) return;
+   var radio = {
+      el: player,
+      btn: btn,
+      state: 'stop',
+      play: function () {
+         if (player.paused) this.el.play();
+         radio.state = 'play';
+         this.btn.classList.add('active');
+         playerWrap.classList.add('show-player');
+      },
+      pause: function () {
+         if (!player.paused) this.el.pause();
+         sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         radio.state = 'stop';
+         this.btn.classList.remove('active');
+         playerWrap.classList.remove('show-player');
+      },
+   };
+   radio.el.volume = 0.5;
+   player.onplay = () => {
+      btn.classList.add('active');
    }
-   else {
-      audioPlayer.pause();
+   player.onpause = () => {
+      btn.classList.remove('active');
+      sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
    }
-}
-closeRadio.addEventListener("click", (event) => {
-   closeRadio.closest(".player").classList.remove("show-player");
-   playRadio.classList.remove('active');
-   if (audioPlayer.play()) {
-      audioPlayer.pause();
-   }
-})
+   btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (player.paused) {
+         btn.classList.add('active');
+         playerWrap.classList.add('show-player');
+         player.play()
+      } else {
+         btn.classList.remove('active');
+         player.pause()
+      }
+   });
+   closeBtn.addEventListener('click', () => {
+      radio.pause();
+   })
+})();
