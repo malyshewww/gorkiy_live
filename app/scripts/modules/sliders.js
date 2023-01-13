@@ -48,8 +48,9 @@ function initSliders() {
       }
    }
 }
+initSliders();
 
-window.addEventListener("load", (e) => {
-   // Запуск инициализации слайдеров
-   initSliders();
-});
+// window.addEventListener("DOMContentLoaded", (e) => {
+//    // Запуск инициализации слайдеров
+//    initSliders();
+// });
