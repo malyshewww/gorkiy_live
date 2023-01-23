@@ -1,10 +1,10 @@
 .programm {
    padding: 28px 0 28px;
-   font-family: 'TT Norms';
+   font-family: "TT Norms";
    &__body {
       position: relative;
       background: $color-gray-light;
-      &::before{
+      &::before {
          content: "";
          position: absolute;
          z-index: 4;
@@ -14,7 +14,7 @@
          height: 98px;
          background: $color-red-dark;
       }
-      &::after{
+      &::after {
          content: "";
          position: absolute;
          top: 0;
@@ -24,9 +24,9 @@
          background: $color-white-light;
       }
    }
-   &__wrapper{
+   &__wrapper {
       position: relative;
-      &::before{
+      &::before {
          content: "";
          position: absolute;
          z-index: 1;
@@ -36,8 +36,8 @@
          height: 80px;
          background: $color-white-light;
       }
-      &.gray-line{
-         &::before{
+      &.gray-line {
+         &::before {
             background: $color-gray-light;
          }
       }
@@ -86,6 +86,51 @@
    &__pagination {
    }
 }
+.slider-home {
+   max-width: 647px;
+   margin: 0 auto;
+   @include border-gradient;
+   border-width: 2px;
+   border-style: solid;
+   // padding: 0 70px;
+   border-image-slice: 1;
+   overflow: hidden;
+   position: relative;
+   display: flex;
+   padding: 2px;
+   &__body {
+   }
+   &__wrapper {
+      align-items: flex-start;
+   }
+   &__item {
+      flex: 1 0 auto;
+      background: $color-white-light;
+      padding: 12px 88px;
+      font-family: "Montserrat", sans-serif;
+      letter-spacing: 1px;
+      font-weight: 500;
+   }
+   &__button {
+      width: 63px;
+      flex: 0 0 63px;
+      background-image: url("../images/icons/arrow2.svg");
+      background-repeat: no-repeat;
+      background-size: 44px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      background-position: 100% 50%;
+      cursor: pointer;
+      &-prev {
+         background-color: #fc284b;
+      }
+      &-next {
+         transform: scaleX(-1);
+         background-color: #e79d25;
+      }
+   }
+}
 .slider-programm.disabled {
    & .slider-programm__wrapper {
       flex-flow: row wrap;
@@ -93,12 +138,12 @@
       grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
       gap: 20px;
    }
-   & .programm-item{
-      &:not(:last-child){
+   & .programm-item {
+      &:not(:last-child) {
          margin-right: 20px;
       }
    }
-   & .slider-programm__controls{
+   & .slider-programm__controls {
       display: none;
    }
 }
@@ -106,6 +151,7 @@
    display: flex;
    flex-direction: column;
    width: 235px;
+   flex-grow: 1;
    &__image {
       position: relative;
       padding-bottom: math.div(171, 235) * 100%;
@@ -116,6 +162,11 @@
          width: 100%;
          height: 100%;
       }
+   }
+   &__top {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
    }
    &__body {
       background: $color-white;
@@ -133,12 +184,14 @@
       line-height: 18px;
    }
    &__footer {
-      font-family: 'TT Norms';
+      font-family: "TT Norms";
       font-weight: 500;
       padding: 13px 7px 13px 23px;
       color: $color-white;
       font-weight: 500;
+      margin-top: auto;
       background: $color-gray-light;
+      min-height: 74px;
    }
    &__time {
       & span {
@@ -146,7 +199,7 @@
          display: block;
          min-height: 20px;
          padding-left: 50px;
-         background: url('../images/icons/clock.svg');
+         background: url("../images/icons/clock.svg");
          background-size: 20px 20px;
          background-repeat: no-repeat;
          background-position: 0 50%;
@@ -156,7 +209,7 @@
 .swiper-pagination-bullets {
    display: flex;
    align-items: center;
-   & .swiper-pagination-bullet{
+   & .swiper-pagination-bullet {
       display: block;
       width: 12px;
       height: 12px;
@@ -164,18 +217,18 @@
       border-radius: 50%;
       background: $color-white;
       cursor: pointer;
-      &:not(:last-child){
+      &:not(:last-child) {
          margin-right: 22px;
       }
-      &.swiper-pagination-bullet-active{
+      &.swiper-pagination-bullet-active {
          border: none;
       }
    }
 }
 .arrow-prev {
-   background-image: url('../images/icons/arrow.svg');
+   background-image: url("../images/icons/arrow.svg");
 }
 .arrow-next {
-   background-image: url('../images/icons/arrow.svg');
+   background-image: url("../images/icons/arrow.svg");
    transform: rotate(180deg);
 }

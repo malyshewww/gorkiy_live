@@ -12,3 +12,11 @@ block content
 					img(src="images/banner.png", alt="")
 				.home__text.
 					Единственное <strong>live радио</strong> в россии
+			.home__slider.slider-home 
+				button.slider-home__button.slider-home__button-prev
+				.slider-home__body._swiper
+					.slider-home__wrapper._swiper-wrapper
+						each item in home
+							.slider-home__item
+								span= item.text
+				button.slider-home__button.slider-home__button-next

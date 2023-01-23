@@ -96,12 +96,11 @@
       &::before {
          content: "";
          display: block;
-         background: url("../images/icons/app-icon.png");
-         background-size: 48px 36px;
+         background-image: url("../images/icons/gl.svg");
+         background-repeat: no-repeat;
+         background-size: 48px 48px;
          width: 48px;
-         height: 36px;
-         position: relative;
-         left: 5px;
+         height: 48px;
       }
    }
    &__text {

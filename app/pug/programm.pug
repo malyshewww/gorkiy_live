@@ -16,11 +16,12 @@ block content
 						.slider-programm__wrapper._swiper-wrapper
 							each item, index in programms
 								.slider-programm__item.programm-item._swiper-slide
-									.programm-item__image 
-										img(src=`images/programm-${index+1}.jpg`, alt="")
-									.programm-item__body 
-										h2.programm-item__title= item.title
-										.programm-item__text= item.text
+									.programm-item__top
+										.programm-item__image 
+											img(src=`images/programm-${index+1}.jpg`, alt="")
+										.programm-item__body 
+											h2.programm-item__title= item.title
+											.programm-item__text= item.text
 									.programm-item__footer
 										.programm-item__time
 											span= item.time
