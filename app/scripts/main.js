@@ -38,6 +38,8 @@ var radio = (() => {
       btn: btn,
       state: 'stop',
       play: function () {
+         // sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         this.el.load();
          if (player.paused) this.el.play();
          radio.state = 'play';
          this.btn.classList.add('active');
@@ -46,10 +48,16 @@ var radio = (() => {
       pause: function () {
          if (!player.paused) this.el.pause();
          sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
-         radio.state = 'stop';
+         radio.state = 'pause';
          this.btn.classList.remove('active');
          playerWrap.classList.remove('show-player');
       },
+      stop: function () {
+         sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         radio.state = 'stop';
+         this.btn.classList.remove('active');
+         playerWrap.classList.remove('show-player');
+      }
    };
    radio.el.volume = 0.5;
    player.onplay = () => {
@@ -71,6 +79,6 @@ var radio = (() => {
       }
    });
    closeBtn.addEventListener('click', () => {
-      radio.pause();
+      radio.stop();
    })
 })();
