@@ -53,7 +53,8 @@ var radio = (() => {
          playerWrap.classList.remove('show-player');
       },
       stop: function () {
-         sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         this.el.pause();
+         sourceAudio.setAttribute('src', `${radiolink}`);
          radio.state = 'stop';
          this.btn.classList.remove('active');
          playerWrap.classList.remove('show-player');

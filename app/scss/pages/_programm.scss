@@ -110,6 +110,7 @@
       font-family: "Montserrat", sans-serif;
       letter-spacing: 1px;
       font-weight: 500;
+      font-size: 18px;
    }
    &__button {
       width: 63px;
@@ -154,7 +155,8 @@
    flex-grow: 1;
    &__image {
       position: relative;
-      padding-bottom: math.div(171, 235) * 100%;
+      // padding-bottom: math.div(171, 235) * 100%;
+      padding-bottom: 100%;
       & img {
          position: absolute;
          top: 0;
