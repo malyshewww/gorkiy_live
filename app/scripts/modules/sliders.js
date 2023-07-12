@@ -47,6 +47,36 @@ function initSliders() {
          programmSlider.closest('.programm__wrapper').classList.add('gray-line');
       }
    }
+   // Слайдер на главной странице
+   const homeSlider = document.querySelector('.slider-home__body');
+   if (homeSlider) {
+      const programmSwiper = new Swiper(homeSlider, {
+         modules: [Navigation, Autoplay],
+         autoHeight: true,
+         loop: true,
+         slidesPerView: 1,
+         spaceBetween: 10,
+         watchOverflow: true,
+         wrapperClass: "slider-home__wrapper",
+         slideClass: "slider-home__item",
+         simulateTouch: true,
+         navigation: {
+            nextEl: '.slider-home__button-next',
+            prevEl: '.slider-home__button-prev',
+         },
+         autoplay: {
+            delay: 5000,
+            stopOnLastSlide: false,
+            disableOnInteraction: true
+         },
+         breakpoints: {
+            300: {
+               autoHeight: true,
+            },
+         }
+      });
+
+   }
 }
 initSliders();
 

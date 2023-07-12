@@ -2,25 +2,26 @@
 .home {
    padding: 54px 0 56px;
    text-align: center;
-   &__body{
+   &__body {
       position: relative;
       padding-right: 54px;
+      padding-bottom: 16px;
    }
    &__title {
       font-weight: 700;
       font-size: 92px;
       line-height: 92px;
       margin-bottom: 6px;
-      & span{
+      & span {
          position: relative;
          padding-left: 80px;
          display: inline-block;
       }
-      & span::before{
+      & span::before {
          content: "";
          position: absolute;
          display: block;
-         background: url('../images/icons/voice.svg');
+         background: url("../images/icons/voice.svg");
          background-repeat: no-repeat;
          top: 0;
          left: 0;
@@ -28,7 +29,7 @@
          height: 81px;
       }
    }
-   &__image{
+   &__image {
       display: flex;
       justify-content: center;
       margin-bottom: 10px;

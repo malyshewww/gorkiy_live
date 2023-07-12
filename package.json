@@ -37,5 +37,8 @@
   },
   "dependencies": {
     "swiper": "^8.2.5"
+  },
+  "volta": {
+    "node": "16.14.0"
   }
 }

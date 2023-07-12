@@ -31,14 +31,26 @@ var radio = (() => {
    var player = document.querySelector('.player-audio')
    var sourceAudio = player.querySelector('source')
    var playerWrap = document.querySelector('.player')
+   // var seekslider = document.getElementById('seekslider')
    if (!btn) return;
    if (!player) return;
    var radio = {
       el: player,
       btn: btn,
       state: 'stop',
+      generate: () => {
+         let playerContainer = document.createElement('div');
+         playerContainer.className = 'player-container container';
+         playerWrap.appendChild(playerContainer);
+         let audio = document.createElement('audio');
+         audio.className = 'player-audio';
+         audio.setAttribute('controls', "");
+         let source = document.createElement('source');
+         source.type = 'audio/mpeg';
+         source.src = radiolink;
+      },
       play: function () {
-         // sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         // sourceAudio.setAttribute('src', `${radiolink}`);
          this.el.load();
          if (player.paused) this.el.play();
          radio.state = 'play';
@@ -53,7 +65,8 @@ var radio = (() => {
          playerWrap.classList.remove('show-player');
       },
       stop: function () {
-         sourceAudio.setAttribute('src', `${radiolink}?v=${Date.now()}`);
+         this.el.pause();
+         sourceAudio.setAttribute('src', `${radiolink}`);
          radio.state = 'stop';
          this.btn.classList.remove('active');
          playerWrap.classList.remove('show-player');
@@ -81,4 +94,8 @@ var radio = (() => {
    closeBtn.addEventListener('click', () => {
       radio.stop();
    })
+   // player.addEventListener('timeupdate', (event) => {
+   //    let seekto = player.duration * (seekslider.value / 100);
+   //    player.currentTime = seekto;
+   // })
 })();
