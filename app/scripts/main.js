@@ -50,7 +50,7 @@ var radio = (() => {
          source.src = radiolink;
       },
       play: function () {
-         sourceAudio.setAttribute('src', `${radiolink}`);
+         // sourceAudio.setAttribute('src', `${radiolink}`);
          this.el.load();
          if (player.paused) this.el.play();
          radio.state = 'play';

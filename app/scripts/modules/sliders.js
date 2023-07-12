@@ -47,6 +47,7 @@ function initSliders() {
          programmSlider.closest('.programm__wrapper').classList.add('gray-line');
       }
    }
+   // Слайдер на главной странице
    const homeSlider = document.querySelector('.slider-home__body');
    if (homeSlider) {
       const programmSwiper = new Swiper(homeSlider, {
